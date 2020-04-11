@@ -77,7 +77,7 @@ There are some actions which typically occur in the span of less than 64 frames 
 ## **2. Action Classification**
 
 
-<img src="methds.PNG" width="1000">
+<img src="methods.PNG" width="1000">
 
 I decided not to proceed with method A as LSTMs are hard to train. Methods involving optical flows were also eliminated due to computational overhead, making it hard to achieve real-time speeds and also noisy backgrounds, reducing the accuracy of predictions made with optical flow.
 
