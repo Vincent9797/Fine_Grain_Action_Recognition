@@ -19,7 +19,7 @@ I would recommend upgrading to tensorflow-gpu v2.1.0 which should run faster the
 
 ## 1. **Pedestrian Detection and Tracking**
 
-Code has been modified from [https://github.com/Qidian213/deep_sort_yolov3](https://github.com/Qidian213/deep_sort_yolov3). In particular, only the `demo.py` has been modified and changed to `extract_frames.py`.
+Code has been modified from [https://github.com/Qidian213/deep_sort_yolov3](https://github.com/Qidian213/deep_sort_yolov3). In particular, only the `demo.py` has been modified and changed to `extract_frames.py`. You will also need a folder called **model_data**, which was too big to be uploaded. It can be downloaded here: https://drive.google.com/drive/folders/1xIyF1sufsw_JDj_igUUNSrYFS390gUlS?usp=sharing.
 
  - **Extracting Frames**
 
