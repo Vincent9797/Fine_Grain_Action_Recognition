@@ -107,7 +107,7 @@ The models can be found in `mobilenet_base.py`, `VATN.py`, `slowfast.py`.
 Initially, due to the lack of fighting videos, I used focal loss to deal with the class imbalance. The idea of focal loss is as such: Assuming I have 3 classes and my example is Class 0, the ground truth is [1,0,0]. Focal loss shifts that threshold lower, so any sensibly high values such as [0.8, 0.1, 0.1] will not contribute much to the final loss. A visual explanation can be seen below. The implementation of this can be found in the `categorical_focal_loss` function in train.py. To use it, you just have to compile the Keras model with that loss function. However, this led to slower convergence. 
 
 
-<img src="focal_loss.png" width="200">
+<img src="focal_loss.PNG" width="200">
 
 
 As I collected more fighting videos, I used categorical cross entropy instead, which allowed for faster convergence.
