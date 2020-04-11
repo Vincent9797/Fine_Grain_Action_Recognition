@@ -74,9 +74,9 @@ There are some actions which typically occur in the span of less than 64 frames 
 
 ## **2. Action Classification**
 
-```
+
 ![Action Recognition Methods](methods.PNG)
-```
+
 I decided not to proceed with method A as LSTMs are hard to train. Methods involving optical flows were also eliminated due to computational overhead, making it hard to achieve real-time speeds and also noisy backgrounds, reducing the accuracy of predictions made with optical flow.
 
 The architecture I used in the end was a 3D Inception network introduced by this paper: [https://arxiv.org/pdf/1705.07750.pdf](https://arxiv.org/pdf/1705.07750.pdf). The Keras code for the network was taken from: [https://github.com/dlpbc/keras-kinetics-i3d/blob/master/i3d_inception.py](https://github.com/dlpbc/keras-kinetics-i3d/blob/master/i3d_inception.py).
@@ -104,9 +104,9 @@ The models can be found in `mobilenet_base.py`, `VATN.py`, `slowfast.py`.
 
 Initially, due to the lack of fighting videos, I used focal loss to deal with the class imbalance. The idea of focal loss is as such: Assuming I have 3 classes and my example is Class 0, the ground truth is [1,0,0]. Focal loss shifts that threshold lower, so any sensibly high values such as [0.8, 0.1, 0.1] will not contribute much to the final loss. A visual explanation can be seen below. The implementation of this can be found in the `categorical_focal_loss` function in train.py. To use it, you just have to compile the Keras model with that loss function. However, this led to slower convergence. 
 
-```
+
 ![Focal Loss](focal_loss.PNG)
-```
+
 
 As I collected more fighting videos, I used categorical cross entropy instead, which allowed for faster convergence.
 - **Optimizer**
