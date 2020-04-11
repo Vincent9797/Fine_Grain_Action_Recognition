@@ -2,6 +2,8 @@
 
 Action Recognition pipeline consists of 2 main stages: YoloV3 Pedestrian Detection with DeepSORT Tracker + 3D Conv-Net for Action Classification. All the code below has been run with tensorflow-gpu v1.14.0.
 
+![](output.gif)
+
 This repo will consist of 4 main parts:
 
  1. Pedestrian Detection and Tracking 
