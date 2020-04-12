@@ -42,18 +42,18 @@ deep_sort
     └── vid3.mp4
     └── vid4.mp4
 └── vid1
-	└── 1
-		└── 1.jpg
-		└── 2.jpg
+    └── 1
+        └── 1.jpg
+        └── 2.jpg
+        .
+        .
 		.
-		.
-		.
-	└── 2
-	└── 3
+    └── 2
+    └── 3
 └── vid2
-	└── 4
-	└── 5
-	└── 6
+    └── 4
+    └── 5
+    └── 6
 ```
 
 To collect data for training, I experimented with a sparse sampling of 16 frames from 64 frames, dense sampling of 32 and 64 consecutive frames. From my experiments, dense sampling of 64 consecutive frames gave the best prediction outcome. 
@@ -61,9 +61,9 @@ To collect data for training, I experimented with a sparse sampling of 16 frames
 After the frames are extracted, I then group 64-80 frames of the same person as one training example. The grouping is done by using `group_frames.py`. The file should be in the same folder as all the video folders as seen below. Before you run the script, specify the video folder on line 6 (Make sure there are no spaces in the folder name) and the classes on line 17. The classes folder should be created before the script is run. The folder directory should look the same as below:
 ```
 └── vid1
-	└── 4
-	└── 5
-	└── 6
+    └── 4
+    └── 5
+    └── 6
 class1
 class2
 class3
