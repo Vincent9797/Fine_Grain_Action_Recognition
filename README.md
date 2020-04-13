@@ -76,6 +76,25 @@ group_frames.py
 
 There are some actions which typically occur in the span of less than 64 frames (e.g. Fighting). For cases like those, I group as many consecutive frames as I can as one training example. I then run `reverse_oversample.py`. Let's say I have frame 0-31, reverse_oversample.py reverses the order the generates frames 32 onwards, until I have more than 64 frames. After that, I run `generate_64.py` to convert the frames into a video (avi format) by taking the first 64 frames and the last 64 frames of each training example. It also produces a  text file, with each line containing the video path and its class, in the form of an integer (e.g. 1=Fighting).  Contents of the text file need to be copied into **datasetlist/trainlist.txt** or **datasetlist/vallist.txt**, depending on whether they are used for training or validation.
 
+The structure of your data should look as such:
+```
+└── train
+    └── fighting
+        └── 1
+	        └── first_64frames.avi
+	        └── last_64frames.avi
+    └── standing
+    └── walking
+└── val
+    └── fighting
+    └── standing
+    └── walking
+└── datasetlist
+    └── trainlist.txt
+    └── vallist.txt
+```
+
+
 ## **2. Action Classification**
 
 
