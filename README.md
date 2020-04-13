@@ -58,6 +58,10 @@ deep_sort
     └── 6
 ```
 
+
+
+ - **Data Labelling**
+
 To collect data for training, I experimented with a sparse sampling of 16 frames from 64 frames, dense sampling of 32 and 64 consecutive frames. From my experiments, dense sampling of 64 consecutive frames gave the best prediction outcome. 
 
 After the frames are extracted, I then group 64-80 frames of the same person as one training example. The grouping is done by using `group_frames.py`. The file should be in the same folder as all the video folders as seen below. Before you run the script, specify the video folder on line 6 (Make sure there are no spaces in the folder name) and the classes on line 17. The classes folder should be created before the script is run. The folder directory should look the same as below:
@@ -71,8 +75,6 @@ class2
 class3
 group_frames.py
 ```
-
- - **Data Labelling**
 
 There are some actions which typically occur in the span of less than 64 frames (e.g. Fighting). For cases like those, I group as many consecutive frames as I can as one training example. I then run `reverse_oversample.py`. Let's say I have frame 0-31, reverse_oversample.py reverses the order the generates frames 32 onwards, until I have more than 64 frames. After that, I run `generate_64.py` to convert the frames into a video (avi format) by taking the first 64 frames and the last 64 frames of each training example. It also produces a  text file, with each line containing the video path and its class, in the form of an integer (e.g. 1=Fighting).  Contents of the text file need to be copied into **datasetlist/trainlist.txt** or **datasetlist/vallist.txt**, depending on whether they are used for training or validation.
 
