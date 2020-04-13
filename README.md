@@ -1,3 +1,4 @@
+
 ## **Introduction**
 
 Action Recognition pipeline consists of 2 main stages: YoloV3 Pedestrian Detection with DeepSORT Tracker + 3D Conv-Net for Action Classification. All the code below has been run with tensorflow-gpu v1.14.0.
@@ -14,8 +15,9 @@ This repo will consist of 4 main parts:
 	 - Architecture
 	 - Loss Function
 	 - Optimiser
- 4. Training
- 5. Infrence
+ 3. Training
+ 4. Infrence
+ 5. Optimisations tried
 
 I would recommend upgrading to tensorflow-gpu v2.1.0 which should run faster then v1.14.0 due to the optimisations made. However, that requires a CUDA version of 10.1, which was troublesome to upgrade to when I was doing the project.
 
@@ -130,3 +132,25 @@ To run inference, use the following command:
     python predict.py --mode RGB --path model.hdf5 --video test1.mp4 --batch False
 
 `mode` determines modality of images where RGB/Flow/Fuse can be used. `path` refers to the file containing the model architecture and weights. `video` refers to the video that you want to run the inference on. `batch` determine whether to use batching or not (Limited by GPU memory).
+
+## **5. Optimisations Tried**
+
+ - Segmentation of Human Body
+
+The aim was to eliminate the background completely by using the segmentation output as a mask. However, this only worked with good quality images, which was not present in training data. For a demo, run the following command:
+
+    python segmentation.py
+
+ **- Human Outline**
+
+The aim was to reduce the background noise by only highlighting clear edges. However, edges in the background were still present in the images. For a demo, run the following command:
+
+    python outline.py
+
+ **- Background Subtration**
+
+The aim was to reduce the background noise by eliminiating the background completely. The parameters such as the rate at which the background fades have to be tuned, but even with that, it produced a lot of noise too. For a demo, run the following command:
+
+    python bg_subtraction.py
+
+There are other methods to implement background subtraction. You can refer to OpenCV functions here: [https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_video/py_bg_subtraction/py_bg_subtraction.html](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_video/py_bg_subtraction/py_bg_subtraction.html).
