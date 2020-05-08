@@ -38,18 +38,18 @@ yolo3
 tools
 model_data
 deep_sort
-└── videos
-    └── vid1.mp4
-    └── vid2.mp4
-    └── vid3.mp4
-    └── vid4.mp4
-└── vid1
+videos
+└── vid1.mp4
+└── vid2.mp4
+└── vid3.mp4
+└── vid4.mp4
+vid1
     └── 1
-        └── 1.jpg
-        └── 2.jpg
-        .
-        .
-		.
+    	└── 1.jpg
+    	└── 2.jpg
+    	.
+    	.
+    	.
     └── 2
     └── 3
 └── vid2
@@ -80,20 +80,20 @@ There are some actions which typically occur in the span of less than 64 frames 
 
 The structure of your data should look as such:
 ```
-└── train
-    └── fighting
-        └── 1
-	        └── first_64frames.avi
-	        └── last_64frames.avi
-    └── standing
-    └── walking
-└── val
-    └── fighting
-    └── standing
-    └── walking
-└── datasetlist
-    └── trainlist.txt
-    └── vallist.txt
+train
+└── fighting
+    └── 1
+	    └── first_64frames.avi
+	    └── last_64frames.avi
+└── standing
+└── walking
+val
+└── fighting
+└── standing
+└── walking
+datasetlist
+└── trainlist.txt
+└── vallist.txt
 ```
 
 
